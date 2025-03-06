@@ -1,4 +1,7 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
+import 'package:myapp/%20Ep%C4%B1n.dart';
 
 void main() {
   runApp(const OmerEpin());
@@ -31,8 +34,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,7 +42,14 @@ class _MyHomePageState extends State<MyHomePage> {
         //backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(widget.title),
       ),
-      body: SafeArea(child: Container()),
+      body: SafeArea(
+        child: ListView.builder(
+          itemCount: Urunler.urunler.length,
+          itemBuilder: (context, index) {
+            return Text(Urunler.urunler[index].urunadi);
+          },
+        ),
+      ),
     );
   }
 }
